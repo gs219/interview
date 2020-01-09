@@ -24,7 +24,8 @@ const handleDir = async (req, res, filePath) => {
   files.map(name => {
     let endWithSlash = false;
     let url = req.url;
-    if (req.url.charAt(req.url.length) === "/") {
+    if (url[url.length - 1] === "/") {
+      console.log("heh");
       endWithSlash = true;
     }
     if (endWithSlash) {
