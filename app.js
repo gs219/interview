@@ -23,7 +23,7 @@ const handleDir = async (req, res, filePath) => {
   str += "<ul>";
   files.map(name => {
     let endWithSlash = false;
-    let url = '';
+    let url = req.url;
     if (req.url.charAt(req.url.length) === "/") {
       endWithSlash = true;
     }
