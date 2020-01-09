@@ -14,7 +14,7 @@ const handleDir = async (req, res, filePath) => {
     const array = req.url.split("/");
     let href = "/";
     array.map((item, index) => {
-      if (item && index !== array.length - 1) {
+      if (item && index !== array.length - 2) {
         href += item + "/";
       }
     });
@@ -25,7 +25,6 @@ const handleDir = async (req, res, filePath) => {
     let endWithSlash = false;
     let url = req.url;
     if (url[url.length - 1] === "/") {
-      console.log("heh");
       endWithSlash = true;
     }
     if (endWithSlash) {
