@@ -22,12 +22,16 @@ const handleDir = async (req, res, filePath) => {
   }
   str += "<ul>";
   files.map(name => {
-    let url = req.url;
-    if (req.url[req.url.length] !== "/") {
-      console.log("heh");
-      url += "/";
+    let endWithSlash = false;
+    let url = '';
+    if (req.url.charAt(req.url.length) === "/") {
+      endWithSlash = true;
     }
-    url += name;
+    if (endWithSlash) {
+      url = url + name;
+    } else {
+      url = url + "/" + name;
+    }
     str += "<li>" + "<a href=" + url + ">" + name + "</a>";
     ("</li>");
   });
